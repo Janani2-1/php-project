@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build docker image'){
             steps{
-                 withCredentials([usernamePassword(credentialsId: 'dockerhub-pwd', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                 script{
                     sh 'docker build -t jan216/5sepimage:v1 .'
                     sh 'docker images'
                 }
@@ -17,7 +17,7 @@ pipeline {
         }
           stage('Docker login') {
             steps {
-                script {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-pwd', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
                     sh 'docker push jan216/5sepimage:v1'
                 }
