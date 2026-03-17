@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('git cloned'){
             steps{
-                git url:'https://github.com/akshu20791/php-project/', branch: "master"
+                git url:'https://github.com/Janani2-1/php-project/edit/master/Jenkinsfile', branch: "master"
               
             }
         }
