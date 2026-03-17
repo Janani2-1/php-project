@@ -18,7 +18,7 @@ pipeline {
           stage('Docker login') {
             steps {
                 script {
-                    sh "echo "YOUR_PASSWORD" | docker login -u jan126 --password-stdin"
+                    sh "echo "21*JanRT06" | docker login -u jan126 --password-stdin"
                     sh 'docker push jan216/5sepimage:v1'
                 }
             }
